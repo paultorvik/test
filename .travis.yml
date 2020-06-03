@@ -5,3 +5,12 @@ services:
 script:
     - docker build -t paultorvik/node .
     - docker images paultorvik/node
+
+before_deploy:
+#    - docker login -u  -p 
+
+deploy:
+    provider: script
+    script: docker push paultorvik/node
+    on:
+        branch: master
